@@ -10,7 +10,7 @@ const Footer = ({ length }) => {
 };
 
 Footer.propTypes = {
-  length: PropTypes.number,
+  length: PropTypes.number.isRequired,
 };
 
 export default Footer;

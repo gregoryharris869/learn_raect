@@ -18,9 +18,15 @@ const Content = ({ items, handleCheck, handleDelete }) => {
 };
 
 Content.propTypes = {
-  items: PropTypes.array,
-  handleCheck: PropTypes.any,
-  handleDelete: PropTypes.any,
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      checked: PropTypes.bool.isRequired,
+      item: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  handleCheck: PropTypes.func.isRequired,
+  handleDelete: PropTypes.func.isRequired,
 };
 
 export default Content;

@@ -4,9 +4,9 @@ import LineItem from "./LineItem";
 const ItemList = ({ items, handleCheck, handleDelete }) => {
   return (
     <ul>
-      {items.map((item, id) => (
+      {items.map((item) => (
         <LineItem
-          key={id}
+          key={item.id}
           item={item}
           handleCheck={handleCheck}
           handleDelete={handleDelete}
@@ -17,9 +17,15 @@ const ItemList = ({ items, handleCheck, handleDelete }) => {
 };
 
 ItemList.propTypes = {
-  items: PropTypes.array,
-  handleCheck: PropTypes.any,
-  handleDelete: PropTypes.any,
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      checked: PropTypes.bool.isRequired,
+      item: PropTypes.string.isRequired,
+    })
+  ).isRequired,
+  handleCheck: PropTypes.func.isRequired,
+  handleDelete: PropTypes.func.isRequired,
 };
 
 export default ItemList;

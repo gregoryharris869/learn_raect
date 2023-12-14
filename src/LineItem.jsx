@@ -26,9 +26,12 @@ const LineItem = ({ item, handleCheck, handleDelete }) => {
 };
 
 LineItem.propTypes = {
-  item: PropTypes.object,
-  handleCheck: PropTypes.any,
-  handleDelete: PropTypes.any,
+  item: PropTypes.shape({
+    id: PropTypes.number.isRequired,
+    checked: PropTypes.bool.isRequired,
+    item: PropTypes.string.isRequired,
+  }).isRequired,
+  handleCheck: PropTypes.func.isRequired,
+  handleDelete: PropTypes.func.isRequired,
 };
-
 export default LineItem;
